@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 台南卡片交流展</title>
+ 
+  <!-- 引入 Font Awesome 圖示庫 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+ 
+  <!-- 引入 Google Fonts：標題用 Syne，內文用 Noto Sans TC -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+ 
+  <!-- 引入外部樣式表 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <!-- ==================== 導覽列 Navigation Bar ==================== -->
+  <!-- 目的：讓訪客快速跳轉各區塊，固定在頂部方便隨時使用 -->
+  <!-- is-scrolled 這個 class 會由 JS 在捲動時動態加入，用來改變導覽列背景 -->
+  <header id="top" class="site-header">
+    <nav class="navbar">
+ 
+      <!-- Logo 區：點擊回到頁面最頂端 -->
+      <a href="#top" class="nav-logo">
+        <i class="fa-solid fa-cards-blank"></i>
+        CardFest <span>2026</span>
+      </a>
+ 
+      <!-- 桌機版導覽連結清單 -->
+      <!-- 初學者說明：每個 <a> 的 href="#xxx" 會跳到對應 id 的區塊 -->
+      <ul class="nav-links">
+        <li><a href="#about"     class="nav-link">活動介紹</a></li>
+        <li><a href="#exhibitors" class="nav-link">攤位資訊</a></li>
+        <li><a href="#schedule"  class="nav-link">活動議程</a></li>
+        <li><a href="#tickets"   class="nav-link">票務資訊</a></li>
+        <li><a href="#venue"     class="nav-link">場地交通</a></li>
+        <li><a href="#contact"   class="nav-link">聯絡我們</a></li>
+      </ul>
+ 
+      <!-- 右側：CTA 按鈕 + 漢堡選單按鈕 -->
+      <div class="nav-right">
+        <!-- 立即報名按鈕（桌機版顯示） -->
+        <a href="#tickets" class="btn btn--primary btn--sm">
+          <i class="fa-solid fa-ticket"></i>
+          立即報名
+        </a>
+ 
+        <!-- 漢堡選單按鈕（手機版才顯示） -->
+        <!-- aria-label 讓螢幕閱讀器知道這個按鈕的用途 -->
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
+          <!-- 三條線圖示，點擊後 JS 會切換成 X -->
+          <i class="fa-solid fa-bars" id="navToggleIcon"></i>
+        </button>
+      </div>
+ 
+    </nav>
+ 
+    <!-- 手機版展開選單（預設隱藏，JS 控制顯示） -->
+    <div class="nav-mobile" id="navMobile">
+      <ul class="nav-mobile-links">
+        <li><a href="#about"      class="nav-mobile-link">活動介紹</a></li>
+        <li><a href="#exhibitors" class="nav-mobile-link">攤位資訊</a></li>
+        <li><a href="#schedule"   class="nav-mobile-link">活動議程</a></li>
+        <li><a href="#tickets"    class="nav-mobile-link">票務資訊</a></li>
+        <li><a href="#venue"      class="nav-mobile-link">場地交通</a></li>
+        <li><a href="#contact"    class="nav-mobile-link">聯絡我們</a></li>
+      </ul>
+      <a href="#tickets" class="btn btn--primary" style="width:100%; justify-content:center;">
+        <i class="fa-solid fa-ticket"></i> 立即報名
+      </a>
+    </div>
+ 
+  </header>
+ 
+  <main>
+ 
+    <!-- ==================== 主視覺橫幅 Hero Section ==================== -->
+    <!-- 目的：第一眼吸引訪客、傳遞活動氛圍與核心資訊 -->
+    <section id="hero" class="hero">
+ 
+      <!-- 背景裝飾：漂浮的卡片圖示，用 CSS 動畫讓畫面更活潑 -->
+      <div class="hero-bg-cards" aria-hidden="true">
+        <span class="bg-card bg-card--1"><i class="fa-solid fa-star"></i></span>
+        <span class="bg-card bg-card--2"><i class="fa-solid fa-bolt"></i></span>
+        <span class="bg-card bg-card--3"><i class="fa-solid fa-dragon"></i></span>
+        <span class="bg-card bg-card--4"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+        <span class="bg-card bg-card--5"><i class="fa-solid fa-gem"></i></span>
+        <span class="bg-card bg-card--6"><i class="fa-solid fa-shield-halved"></i></span>
+      </div>
+ 
+      <!-- Hero 主要內容區 -->
+      <div class="hero-content">
+ 
+        <!-- 活動標籤 -->
+        <span class="hero-badge">
+          <i class="fa-solid fa-calendar-days"></i>
+          2026 年 8 月 16–17 日
+        </span>
+ 
+        <!-- 主標題 -->
+        <h1 class="hero-title">
+          台南卡片<br />
+          <span class="hero-title--highlight">交流展</span>
+        </h1>
+ 
+        <!-- 副標題說明 -->
+        <p class="hero-desc">
+          全台最大集換式卡片交流盛會，匯聚寶可夢、遊戲王、魔法風雲會等各系列玩家。
+          超過 80 個攤位等你來挖寶、交流、對戰！
+        </p>
+ 
+        <!-- 活動地點 -->
+        <p class="hero-location">
+          <i class="fa-solid fa-location-dot"></i>
+          台南市永康區南台科技大學展覽館
+        </p>
+ 
+        <!-- CTA 按鈕群組 -->
+        <div class="hero-buttons">
+          <!-- 主要按鈕：立即報名 -->
+          <a href="#tickets" class="btn btn--primary">
+            <i class="fa-solid fa-ticket"></i>
+            立即報名
+          </a>
+          <!-- 次要按鈕：了解更多 -->
+          <a href="#about" class="btn btn--secondary">
+            了解更多
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+ 
+        <!-- 快速數據：三個亮點數字 -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat__num">80+</span>
+            <span class="hero-stat__label">參展攤位</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat__num">3,000+</span>
+            <span class="hero-stat__label">預計人次</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat__num">5 大</span>
+            <span class="hero-stat__label">卡片系列</span>
+          </div>
+        </div>
+ 
+      </div>
+      <!-- / hero-content -->
+ 
+      <!-- 向下捲動提示箭頭 -->
+      <a href="#about" class="hero-scroll-hint" aria-label="往下捲動">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+ 
+    </section>
+    <!-- / #hero -->
+ 
+    <!-- ==================== 活動介紹 About Section ==================== -->
+    <!-- 目的：說明展覽定位、特色與目標族群，建立訪客信任感 -->
+    <section id="about" class="about">
+      <div class="container">
+ 
+        <!-- 區塊標題（每個區塊都用相同的 section-header 結構，保持一致性） -->
+        <div class="section-header">
+          <span class="section-label">
+            <i class="fa-solid fa-circle-info"></i> 關於活動
+          </span>
+          <h2 class="section-title">什麼是卡片交流展？</h2>
+          <p class="section-desc">
+            由玩家自發組織、為玩家而生的集換式卡片嘉年華，
+            每年吸引全台各地收藏家、交易者與新手玩家共同參與。
+          </p>
+        </div>
+ 
+        <!-- 亮點數據卡片：三張並排，展示重要數字 -->
+        <!-- 初學者說明：用 about-stats 做 Grid 排版，三欄等寬 -->
+        <div class="about-stats">
+          <div class="about-stat-card">
+            <div class="about-stat-card__icon" style="background: rgba(255,107,43,0.10); color: var(--color-primary);">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="about-stat-card__num">80<span>+</span></div>
+            <div class="about-stat-card__label">參展攤位</div>
+            <p class="about-stat-card__desc">來自全台各地的賣家、社團與個人攤主</p>
+          </div>
+ 
+          <div class="about-stat-card about-stat-card--featured">
+            <!-- featured 版本加上主色背景，讓中間那張更突出 -->
+            <div class="about-stat-card__icon" style="background: rgba(255,255,255,0.20); color: #fff;">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="about-stat-card__num">3,000<span>+</span></div>
+            <div class="about-stat-card__label">預計入場人次</div>
+            <p class="about-stat-card__desc">兩天活動累計，歷年規模最大的一屆</p>
+          </div>
+ 
+          <div class="about-stat-card">
+            <div class="about-stat-card__icon" style="background: rgba(59,130,246,0.10); color: var(--color-accent);">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="about-stat-card__num">4<span> 大</span></div>
+            <div class="about-stat-card__label">卡片系列</div>
+            <p class="about-stat-card__desc">寶可夢、遊戲王、魔法風雲會、Lorcana</p>
+          </div>
+        </div>
+ 
+        <!-- 活動特色列表：說明展覽亮點與目標族群 -->
+        <div class="about-features">
+ 
+          <!-- 左側：文字說明 -->
+          <div class="about-features__text">
+            <h3 class="about-features__title">這裡有什麼？</h3>
+            <ul class="about-feature-list">
+              <li class="about-feature-item">
+                <span class="about-feature-item__icon">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </span>
+                <div>
+                  <strong>自由交流交易</strong>
+                  <p>帶著你的卡片來，找到心目中的夢幻逸品，或讓手邊重複的卡找到新主人。</p>
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <span class="about-feature-item__icon">
+                  <i class="fa-solid fa-fist-raised"></i>
+                </span>
+                <div>
+                  <strong>現場對戰賽事</strong>
+                  <p>多個系列同步舉辦友誼賽，從新手到老手都有適合的組別，歡迎報名挑戰。</p>
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <span class="about-feature-item__icon">
+                  <i class="fa-solid fa-gift"></i>
+                </span>
+                <div>
+                  <strong>限定卡抽獎活動</strong>
+                  <p>現場消費滿額即可參加抽獎，多款展覽限定卡等你帶回家！</p>
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <span class="about-feature-item__icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <div>
+                  <strong>鑑價與保存諮詢</strong>
+                  <p>現場設有專業鑑價區，協助玩家了解卡片行情與正確保存方式。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+ 
+          <!-- 右側：適合族群卡片 -->
+          <div class="about-features__cards">
+            <h3 class="about-features__title">適合哪些人？</h3>
+            <div class="about-audience-list">
+ 
+              <div class="about-audience-card">
+                <i class="fa-solid fa-user-graduate"></i>
+                <div>
+                  <strong>剛入坑的新手</strong>
+                  <p>不懂沒關係，現場有玩家願意分享入門知識！</p>
+                </div>
+              </div>
+ 
+              <div class="about-audience-card">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <div>
+                  <strong>資深收藏家</strong>
+                  <p>挖掘市面少見的稀有卡，與同好交流收藏心得。</p>
+                </div>
+              </div>
+ 
+              <div class="about-audience-card">
+                <i class="fa-solid fa-handshake"></i>
+                <div>
+                  <strong>交易賣家</strong>
+                  <p>擺攤接觸大量潛在買家，拓展你的卡片事業。</p>
+                </div>
+              </div>
+ 
+              <div class="about-audience-card">
+                <i class="fa-solid fa-people-group"></i>
+                <div>
+                  <strong>親子同樂</strong>
+                  <p>適合闔家參觀，讓下一代提早認識桌遊與卡牌文化。</p>
+                </div>
+              </div>
+ 
+            </div>
+          </div>
+ 
+        </div>
+        <!-- / about-features -->
+ 
+      </div>
+    </section>
+    <!-- / #about -->
+ 
+    <!-- ==================== 攤位資訊 Exhibitors Section ==================== -->
+    <!-- 目的：展示參展攤位清單，讓訪客提前了解有哪些賣家與社團 -->
+    <section id="exhibitors" class="exhibitors">
+      <div class="container">
+ 
+        <div class="section-header">
+          <span class="section-label">
+            <i class="fa-solid fa-store"></i> 參展攤位
+          </span>
+          <h2 class="section-title">誰會在現場？</h2>
+          <p class="section-desc">超過 80 個攤位，涵蓋各大卡片系列的賣家、社團與個人收藏家。</p>
+        </div>
+ 
+        <!-- 篩選標籤列 -->
+        <!-- 初學者說明：每個 button 帶有 data-filter 屬性，
+             JS 會讀取這個值來決定要顯示哪些攤位卡 -->
+        <div class="filter-bar">
+          <button class="filter-btn is-active" data-filter="all">全部攤位</button>
+          <button class="filter-btn" data-filter="pokemon">寶可夢</button>
+          <button class="filter-btn" data-filter="yugioh">遊戲王</button>
+          <button class="filter-btn" data-filter="mtg">魔法風雲會</button>
+          <button class="filter-btn" data-filter="other">其他系列</button>
+        </div>
+ 
+        <!-- 攤位卡片 Grid -->
+        <div class="exhibitor-grid">
+ 
+          <div class="exhibitor-card" data-category="pokemon">
+            <div class="exhibitor-card__badge">A-01</div>
+            <div class="exhibitor-card__icon" style="background:#fef9c3; color:#ca8a04;">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 class="exhibitor-card__name">皮卡丘收藏館</h3>
+            <span class="exhibitor-card__tag">寶可夢</span>
+            <p class="exhibitor-card__desc">專營寶可夢稀有卡與 PSA 鑑定卡，收藏家必訪。</p>
+          </div>
+ 
+          <div class="exhibitor-card" data-category="yugioh">
+            <div class="exhibitor-card__badge">B-03</div>
+            <div class="exhibitor-card__icon" style="background:#fce7f3; color:#db2777;">
+              <i class="fa-solid fa-dragon"></i>
+            </div>
+            <h3 class="exhibitor-card__name">黑暗魔術師鋪</h3>
+            <span class="exhibitor-card__tag">遊戲王</span>
+            <p class="exhibitor-card__desc">絕版老卡、新制環境卡一應俱全，歡迎詢價。</p>
+          </div>
+ 
+          <div class="exhibitor-card" data-category="mtg">
+            <div class="exhibitor-card__badge">C-07</div>
+            <div class="exhibitor-card__icon" style="background:#e0f2fe; color:#0284c7;">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3 class="exhibitor-card__name">風雲際會工作室</h3>
+            <span class="exhibitor-card__tag">魔法風雲會</span>
+            <p class="exhibitor-card__desc">Commander 套牌組裝顧問，新手友善攤位。</p>
+          </div>
+ 
+          <div class="exhibitor-card" data-category="pokemon">
+            <div class="exhibitor-card__badge">A-05</div>
+            <div class="exhibitor-card__icon" style="background:#dcfce7; color:#16a34a;">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3 class="exhibitor-card__name">草系社團聯盟</h3>
+            <span class="exhibitor-card__tag">寶可夢</span>
+            <p class="exhibitor-card__desc">草系玩家的大本營，特別企劃草系限定交流活動。</p>
+          </div>
+ 
+          <div class="exhibitor-card" data-category="other">
+            <div class="exhibitor-card__badge">D-02</div>
+            <div class="exhibitor-card__icon" style="background:#ede9fe; color:#7c3aed;">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="exhibitor-card__name">Lorcana 台灣玩家群</h3>
+            <span class="exhibitor-card__tag">其他系列</span>
+            <p class="exhibitor-card__desc">迪士尼 Lorcana 入門教學與卡片展示，歡迎認識！</p>
+          </div>
+ 
+          <div class="exhibitor-card" data-category="other">
+            <div class="exhibitor-card__badge">D-08</div>
+            <div class="exhibitor-card__icon" style="background:#ffedd5; color:#ea580c;">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h3 class="exhibitor-card__name">護卡配件專賣</h3>
+            <span class="exhibitor-card__tag">其他系列</span>
+            <p class="exhibitor-card__desc">各尺寸護卡套、卡冊、展示架，保護你的珍藏。</p>
+          </div>
+ 
+        </div>
+        <!-- / exhibitor-grid -->
+ 
+      </div>
+    </section>
+    <!-- / #exhibitors -->
+ 
+ 
+    <!-- ==================== 活動議程 Schedule Section ==================== -->
+    <!-- 目的：告知當天流程，方便訪客規劃參觀動線 -->
+    <section id="schedule" class="schedule">
+      <div class="container">
+ 
+        <div class="section-header">
+          <span class="section-label">
+            <i class="fa-solid fa-calendar-check"></i> 活動議程
+          </span>
+          <h2 class="section-title">兩天活動流程</h2>
+          <p class="section-desc">精彩活動排程一覽，記得提早到場避免錯過！</p>
+        </div>
+ 
+        <!-- Day 切換 Tab -->
+        <div class="schedule-tabs">
+          <button class="schedule-tab is-active" data-day="day1">
+            <i class="fa-solid fa-sun"></i> Day 1（8/16）
+          </button>
+          <button class="schedule-tab" data-day="day2">
+            <i class="fa-solid fa-moon"></i> Day 2（8/17）
+          </button>
+        </div>
+ 
+        <!-- Day 1 議程 -->
+        <div class="schedule-list is-active" id="day1">
+          <div class="schedule-item">
+            <div class="schedule-item__time">09:00</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>開幕與入場</strong>
+              <p>展場正式開放，限量入場早鳥禮領取（憑票）</p>
+            </div>
+          </div>
+          <div class="schedule-item schedule-item--highlight">
+            <div class="schedule-item__time">10:30</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>寶可夢友誼賽 — 報名截止</strong>
+              <p>現場報名至 10:00，共 32 強單淘汰制</p>
+              <span class="schedule-badge">
+                <i class="fa-solid fa-trophy"></i> 特別賽事
+              </span>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-item__time">13:00</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>午間抽獎活動</strong>
+              <p>當日消費滿 500 元可抽限定卡，至舞台區參加</p>
+            </div>
+          </div>
+          <div class="schedule-item schedule-item--highlight">
+            <div class="schedule-item__time">15:00</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>遊戲王公開賽決賽</strong>
+              <p>16 強決賽登場，歡迎觀戰加油！</p>
+              <span class="schedule-badge">
+                <i class="fa-solid fa-trophy"></i> 特別賽事
+              </span>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-item__time">17:30</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>Day 1 閉幕</strong>
+              <p>展場關閉，明日 09:00 繼續開放</p>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Day 2 議程（預設隱藏） -->
+        <div class="schedule-list" id="day2">
+          <div class="schedule-item">
+            <div class="schedule-item__time">09:00</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>Day 2 開場</strong>
+              <p>展場重新開放，攤位全數到齊</p>
+            </div>
+          </div>
+          <div class="schedule-item schedule-item--highlight">
+            <div class="schedule-item__time">11:00</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>魔法風雲會 Commander 對戰</strong>
+              <p>4 人一桌同樂賽，新手老手均歡迎</p>
+              <span class="schedule-badge">
+                <i class="fa-solid fa-trophy"></i> 特別賽事
+              </span>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-item__time">14:00</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>大會抽獎壓軸場</strong>
+              <p>本屆最大獎公佈，PSA 10 鑑定卡等你拿！</p>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-item__time">16:30</div>
+            <div class="schedule-item__dot"></div>
+            <div class="schedule-item__content">
+              <strong>閉幕典禮</strong>
+              <p>感謝所有參展者與訪客，明年再見！</p>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </section>
+    <!-- / #schedule -->
+ 
+ 
+    <!-- ==================== 票務資訊 Tickets Section ==================== -->
+    <!-- 目的：說明票種與價格，引導訪客完成購票或報名 -->
+    <section id="tickets" class="tickets">
+      <div class="container">
+ 
+        <div class="section-header">
+          <span class="section-label">
+            <i class="fa-solid fa-ticket"></i> 票務資訊
+          </span>
+          <h2 class="section-title">選擇你的入場方式</h2>
+          <p class="section-desc">免費入場！攤主與 VIP 票種另有專屬權益。</p>
+        </div>
+ 
+        <!-- 票種卡片：三欄排列 -->
+        <div class="ticket-grid">
+ 
+          <!-- 一般票 -->
+          <div class="ticket-card">
+            <div class="ticket-card__header">
+              <div class="ticket-card__icon">
+                <i class="fa-solid fa-person-walking"></i>
+              </div>
+              <h3 class="ticket-card__name">一般入場券</h3>
+              <div class="ticket-card__price">
+                <span class="ticket-card__price-num">免費</span>
+              </div>
+            </div>
+            <ul class="ticket-card__perks">
+              <li><i class="fa-solid fa-check"></i> 兩日自由進出</li>
+              <li><i class="fa-solid fa-check"></i> 所有攤位自由參觀</li>
+              <li><i class="fa-solid fa-check"></i> 觀看賽事</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> 賽事報名資格</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> 專屬早鳥禮</li>
+            </ul>
+            <a href="#contact" class="btn btn--secondary" style="width:100%; justify-content:center;">
+              現場取票
+            </a>
+            <p class="ticket-card__note">無需預先報名，現場直接入場</p>
+          </div>
+ 
+          <!-- 攤主票（推薦） -->
+          <div class="ticket-card ticket-card--featured">
+            <div class="ticket-card__popular">最多人選擇</div>
+            <div class="ticket-card__header">
+              <div class="ticket-card__icon">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <h3 class="ticket-card__name">攤主申請</h3>
+              <div class="ticket-card__price">
+                <span class="ticket-card__price-num">NT$800</span>
+                <span class="ticket-card__price-unit">/ 桌</span>
+              </div>
+            </div>
+            <ul class="ticket-card__perks">
+              <li><i class="fa-solid fa-check"></i> 獨立桌位一張（180×60cm）</li>
+              <li><i class="fa-solid fa-check"></i> 攤主識別證兩張</li>
+              <li><i class="fa-solid fa-check"></i> 提前 1 小時進場佈置</li>
+              <li><i class="fa-solid fa-check"></i> 攤位頁面宣傳曝光</li>
+              <li><i class="fa-solid fa-check"></i> 賽事報名資格</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary" style="width:100%; justify-content:center;">
+              <i class="fa-solid fa-paper-plane"></i> 立即申請
+            </a>
+            <p class="ticket-card__note">名額有限，額滿為止</p>
+          </div>
+ 
+          <!-- VIP 票 -->
+          <div class="ticket-card">
+            <div class="ticket-card__header">
+              <div class="ticket-card__icon">
+                <i class="fa-solid fa-crown"></i>
+              </div>
+              <h3 class="ticket-card__name">VIP 早鳥票</h3>
+              <div class="ticket-card__price">
+                <span class="ticket-card__price-num">NT$200</span>
+              </div>
+            </div>
+            <ul class="ticket-card__perks">
+              <li><i class="fa-solid fa-check"></i> 提前 30 分鐘入場</li>
+              <li><i class="fa-solid fa-check"></i> 限定周邊禮品包</li>
+              <li><i class="fa-solid fa-check"></i> 額外抽獎機會 ×2</li>
+              <li><i class="fa-solid fa-check"></i> 賽事報名資格</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> 攤位桌位</li>
+            </ul>
+            <a href="#contact" class="btn btn--secondary" style="width:100%; justify-content:center;">
+              <i class="fa-solid fa-paper-plane"></i> 預購報名
+            </a>
+            <p class="ticket-card__note">僅限前 100 名，售完為止</p>
+          </div>
+ 
+        </div>
+        <!-- / ticket-grid -->
+ 
+        <!-- 注意事項 -->
+        <div class="tickets-notice">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <p>未滿 12 歲請由家長或監護人陪同入場。票券售出後恕不退換，如遇活動延期將另行通知。</p>
+        </div>
+ 
+      </div>
+    </section>
+    <!-- / #tickets -->
+ 
+ 
+    <!-- ==================== 場地與交通 Venue Section ==================== -->
+    <!-- 目的：降低訪客找不到場地的障礙，提升實際到場率 -->
+    <section id="venue" class="venue">
+      <div class="container">
+ 
+        <div class="section-header">
+          <span class="section-label">
+            <i class="fa-solid fa-location-dot"></i> 場地交通
+          </span>
+          <h2 class="section-title">怎麼來？</h2>
+          <p class="section-desc">多種交通方式任你選，提早出發避開人潮。</p>
+        </div>
+ 
+        <div class="venue-layout">
+ 
+          <!-- 左側：地圖嵌入 -->
+          <!-- 初學者說明：iframe 直接嵌入 Google Maps，src 網址從 Google Maps 分享功能複製 -->
+          <div class="venue-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.883!2d120.2488!3d23.0408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e77a2b2b2b2b3%3A0x1!2z5Y-w5Y2X56uL5oqA5aSn5a246Zmi5byD!5e0!3m2!1szh-TW!2stw!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="展覽館地圖">
+            </iframe>
+          </div>
+ 
+          <!-- 右側：交通資訊 -->
+          <div class="venue-info">
+            <div class="venue-address">
+              <i class="fa-solid fa-building"></i>
+              <div>
+                <strong>南台科技大學展覽館</strong>
+                <p>台南市永康區南台街一號</p>
+              </div>
+            </div>
+ 
+            <div class="venue-hours">
+              <i class="fa-regular fa-clock"></i>
+              <div>
+                <strong>開放時間</strong>
+                <p>Day 1：09:00 – 17:30</p>
+                <p>Day 2：09:00 – 17:00</p>
+              </div>
+            </div>
+ 
+            <div class="venue-transport-list">
+ 
+              <div class="venue-transport">
+                <div class="venue-transport__icon" style="background:#dcfce7; color:#16a34a;">
+                  <i class="fa-solid fa-train-subway"></i>
+                </div>
+                <div>
+                  <strong>搭乘火車</strong>
+                  <p>台鐵永康站出口步行約 10 分鐘</p>
+                </div>
+              </div>
+ 
+              <div class="venue-transport">
+                <div class="venue-transport__icon" style="background:#dbeafe; color:#2563eb;">
+                  <i class="fa-solid fa-bus"></i>
+                </div>
+                <div>
+                  <strong>搭乘公車</strong>
+                  <p>藍幹線、紅 2 路至「南台科大站」下車</p>
+                </div>
+              </div>
+ 
+              <div class="venue-transport">
+                <div class="venue-transport__icon" style="background:#fef9c3; color:#ca8a04;">
+                  <i class="fa-solid fa-car"></i>
+                </div>
+                <div>
+                  <strong>自行開車</strong>
+                  <p>國道 1 號永康交流道下，依指示牌行駛約 5 分鐘</p>
+                </div>
+              </div>
+ 
+              <div class="venue-transport">
+                <div class="venue-transport__icon" style="background:#ffe4e6; color:#e11d48;">
+                  <i class="fa-solid fa-motorcycle"></i>
+                </div>
+                <div>
+                  <strong>機車停車</strong>
+                  <p>校園周邊設有免費機車停車格，假日管制請注意標示</p>
+                </div>
+              </div>
+ 
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+    </section>
+    <!-- / #venue -->
+ 
+ 
+    <!-- ==================== 常見問題 FAQ Section ==================== -->
+    <!-- 目的：主動回答訪客疑問，減少重複詢問 -->
+    <section id="faq" class="faq">
+      <div class="container">
+ 
+        <div class="section-header">
+          <span class="section-label">
+            <i class="fa-solid fa-circle-question"></i> 常見問題
+          </span>
+          <h2 class="section-title">有問題嗎？</h2>
+          <p class="section-desc">整理了大家最常問的問題，找不到答案再聯絡我們。</p>
+        </div>
+ 
+        <!-- 手風琴 FAQ 列表 -->
+        <!-- 初學者說明：使用原生 <details> 和 <summary> 標籤，
+             不需要 JavaScript 就能做到折疊展開效果！ -->
+        <div class="faq-list">
+ 
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>可以帶自己的卡片進場嗎？</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>當然可以！這正是交流展的核心精神。建議先將卡片裝入護卡套並整理好，方便現場快速交流交易。</p>
+            </div>
+          </details>
+ 
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>現場有提供護卡套等配件嗎？</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>有的，展場內設有配件專賣攤位（D-08），販售各尺寸護卡套、卡冊與展示架，價格公道。</p>
+            </div>
+          </details>
+ 
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>活動若遇颱風或不可抗力因素是否延期？</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>若遇颱風假或其他不可抗力因素導致活動取消，主辦方將於前一日在官方 Facebook 粉絲頁發佈公告，並以報名 Email 通知所有報名者。</p>
+            </div>
+          </details>
+ 
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>攤主申請截止時間是什麼時候？</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>攤主申請截止日為 <strong>2026 年 7 月 31 日</strong>，但名額有限（共 80 桌），額滿即停止受理，建議早點申請！</p>
+            </div>
+          </details>
+ 
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>可以帶小朋友參加嗎？</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>歡迎！本展適合各年齡層，未滿 12 歲請由家長或監護人陪同入場。現場也設有新手入門區，讓小朋友認識卡牌文化。</p>
+            </div>
+          </details>
+ 
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>現場有餐飲服務嗎？</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>展場內不設餐飲攤位，但校園周邊有多家便利商店與餐廳，步行約 5 分鐘可到達。展場內禁止飲食，請至戶外區享用。</p>
+            </div>
+          </details>
+ 
+        </div>
+        <!-- / faq-list -->
+ 
+      </div>
+    </section>
+    <!-- / #faq -->
+ 
+ 
+    <!-- ==================== 聯絡我們 Contact Section ==================== -->
+    <!-- 目的：提供官方聯絡管道，處理攤位申請、媒體合作等需求 -->
+    <section id="contact" class="contact">
+      <div class="container">
+ 
+        <div class="section-header">
+          <span class="section-label">
+            <i class="fa-solid fa-envelope"></i> 聯絡我們
+          </span>
+          <h2 class="section-title">有任何問題嗎？</h2>
+          <p class="section-desc">填寫表單後我們將在 2 個工作天內回覆你。</p>
+        </div>
+ 
+        <div class="contact-layout">
+ 
+          <!-- 左側：聯絡資訊 -->
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <strong>官方信箱</strong>
+                <p>cardfest2026@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon">
+                <i class="fa-brands fa-facebook"></i>
+              </div>
+              <div>
+                <strong>Facebook 粉絲頁</strong>
+                <p>@CardFest2026Taiwan</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div>
+                <strong>Instagram</strong>
+                <p>@cardfest_2026</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon">
+                <i class="fa-brands fa-discord"></i>
+              </div>
+              <div>
+                <strong>Discord 社群</strong>
+                <p>discord.gg/cardfest2026</p>
+              </div>
+            </div>
+          </div>
+ 
+          <!-- 右側：聯絡表單 -->
+          <!-- 初學者說明：
+               - <form> 是表單容器
+               - <label> 的 for 屬性要對應 <input> 的 id，點標籤時會自動聚焦欄位
+               - required 屬性讓瀏覽器在送出前自動檢查欄位是否填寫 -->
+          <form class="contact-form" id="contactForm" novalidate>
+ 
+            <div class="form-row">
+              <!-- 姓名欄位 -->
+              <div class="form-group">
+                <label for="name" class="form-label">姓名 <span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="請輸入你的姓名"
+                  required
+                />
+                <!-- JS 驗證失敗時會顯示這個錯誤訊息 -->
+                <span class="form-error" id="nameError"></span>
+              </div>
+ 
+              <!-- Email 欄位 -->
+              <div class="form-group">
+                <label for="email" class="form-label">Email <span class="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="example@email.com"
+                  required
+                />
+                <span class="form-error" id="emailError"></span>
+              </div>
+            </div>
+ 
+            <!-- 詢問類別 -->
+            <div class="form-group">
+              <label for="category" class="form-label">詢問類別 <span class="required">*</span></label>
+              <select id="category" name="category" class="form-input" required>
+                <option value="">請選擇詢問類別…</option>
+                <option value="booth">攤位申請</option>
+                <option value="ticket">票務問題</option>
+                <option value="media">媒體合作</option>
+                <option value="other">其他問題</option>
+              </select>
+              <span class="form-error" id="categoryError"></span>
+            </div>
+ 
+            <!-- 訊息內容 -->
+            <div class="form-group">
+              <label for="message" class="form-label">訊息內容 <span class="required">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-input form-textarea"
+                placeholder="請描述你的問題或需求…"
+                rows="5"
+                required
+              ></textarea>
+              <span class="form-error" id="messageError"></span>
+            </div>
+ 
+            <!-- 送出按鈕 -->
+            <button type="submit" class="btn btn--primary" id="submitBtn" style="width:100%; justify-content:center;">
+              <i class="fa-solid fa-paper-plane"></i>
+              送出訊息
+            </button>
+ 
+            <!-- 送出成功提示（預設隱藏，JS 控制顯示） -->
+            <div class="form-success" id="formSuccess">
+              <i class="fa-solid fa-circle-check"></i>
+              訊息已送出！我們將在 2 個工作天內回覆你。
+            </div>
+ 
+          </form>
+ 
+        </div>
+        <!-- / contact-layout -->
+ 
+      </div>
+    </section>
+    <!-- / #contact -->
+ 
+  </main>
+ 
+  <!-- ==================== 頁尾 Footer ==================== -->
+  <!-- 目的：收尾版面，補充版權聲明與快速連結 -->
+  <footer id="footer" class="site-footer">
+    <div class="container">
+      <div class="footer-layout">
+ 
+        <!-- 左側：Logo 與簡介 -->
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="margin-bottom:12px; display:inline-flex;">
+            <i class="fa-solid fa-cards-blank"></i>
+             <span>CardFest 2026</span>
+          </a>
+          <p>全台最大集換式卡片交流展，每年夏天在台南與你相遇。</p>
+          <!-- 社群連結 -->
+          <div class="footer-social">
+            <a href="https://www.facebook.com/" class="footer-social-link" aria-label="Facebook">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/" class="footer-social-link" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://discord.com/" class="footer-social-link" aria-label="Discord">
+              <i class="fa-brands fa-discord"></i>
+            </a>
+          </div>
+        </div>
+ 
+        <!-- 右側：快速導覽 -->
+        <nav class="footer-nav" aria-label="頁尾導覽">
+          <strong>快速導覽</strong>
+          <ul>
+            <li><a href="#about">活動介紹</a></li>
+            <li><a href="#exhibitors">攤位資訊</a></li>
+            <li><a href="#schedule">活動議程</a></li>
+            <li><a href="#tickets">票務資訊</a></li>
+            <li><a href="#venue">場地交通</a></li>
+            <li><a href="#contact">聯絡我們</a></li>
+          </ul>
+        </nav>
+ 
+      </div>
+ 
+      <!-- 版權列 -->
+      <div class="footer-bottom">
+        <p>© 2026 CardFest Taiwan. All rights reserved.</p>
+        <p>主辦單位：台南卡片交流展籌備委員會</p>
+      </div>
+ 
+    </div>
+  </footer>
+ 
+  <!-- 引入外部 JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
